@@ -1,5 +1,7 @@
 import crypto from 'crypto';
 
+import messageEvent from './events/message.js';
+
 const generateID = () => crypto.randomBytes(6).toString('hex');
 
 export default (socket) => {
@@ -22,4 +24,8 @@ export default (socket) => {
 
 	socket.broadcast.emit('players', socket.memory.getPlayers());
 	socket.emit('players', socket.memory.getPlayers());
+
+	socket.on('message', (message) => {
+		messageEvent(message, socket);
+	});
 };

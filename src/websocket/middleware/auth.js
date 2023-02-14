@@ -9,7 +9,7 @@ export default (socket, next) => {
 	}
 
 	socket.sessionID = sessionID;
-	socket.nickname = nickname;
+	socket.nickname = nickname.substring(0, 12);
 
 	next();
 };
