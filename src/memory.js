@@ -28,7 +28,6 @@ class gameMemory {
 	}
 
 	sessionExists(session) {
-		// Check if map contains a player with the sessionID
 		return [...this.players.values()].some(
 			(player) => player.sessionID === session
 		);

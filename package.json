@@ -1,5 +1,5 @@
 {
-	"name": "game-tbd",
+	"name": "game",
 	"version": "1.0.0",
 	"description": "",
 	"source": "client/index.html",
@@ -13,6 +13,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"express": "^4.18.2",
+		"helmet": "^6.0.1",
 		"parcel": "^2.8.3",
 		"socket.io": "^4.6.0",
 		"socket.io-client": "^4.6.0"

@@ -29,6 +29,7 @@ const socket = io({
 
 socket.on('connect', () => {
 	elements.joinButton.classList.add('hidden');
+	elements.usernameInput.classList.add('hidden');
 	elements.leaveButton.classList.remove('hidden');
 	elements.leaderboard.classList.remove('hidden');
 	elements.chat.classList.remove('hidden');
@@ -59,6 +60,11 @@ socket.on('message', (message) => {
 	elements.messages.innerHTML += `<p><b>${message.nickname.escapeHTML()}</b>: ${message.message.escapeHTML()}</p>`;
 });
 
+elements.messageInput.addEventListener('keyup', (event) => {
+	if (event.key === 'Enter') {
+		elements.sendMessage.click();
+	}
+});
 elements.joinButton.addEventListener('click', async () => {
 	let sessionID = localStorage.getItem('sessionID');
 
@@ -81,7 +87,9 @@ elements.joinButton.addEventListener('click', async () => {
 });
 
 elements.sendMessage.addEventListener('click', () => {
+	if(!elements.messageInput.value) return;
 	socket.emit('message', elements.messageInput.value);
+	elements.messageInput.value = '';
 });
 
 elements.leaveButton.addEventListener('click', async () => {
