@@ -8,12 +8,17 @@
 		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
+		<div id="game"></div>
 		<div id="gameSetup">
 			<input id="username" placeholder="Name" minlength="1" maxlength="12" />
 			<button id="join">Join</button>
 			<button class="hidden" id="leave">Leave</button>
 		</div>
-		<div class="hidden" id="leaderboard"></div>
+
+		<div class="hidden" id="leaderboard">
+			Leaderboard:
+			<div id="leaderboard"></div>
+		</div>
 
 		<div class="hidden" id="chat">
 			Messages:

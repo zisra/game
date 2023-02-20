@@ -1,12 +1,11 @@
 import express from 'express';
-import helmet from 'helmet';
 import { Server } from 'socket.io';
 
 import http from 'node:http';
 
-import handleSocketConnection from './websocket/connection.js';
-import handleSocketDisconnection from './websocket/disconnection.js';
-import authMiddleware from './websocket/middleware/auth.js';
+import handleSocketConnection from './socket/connection.js';
+import handleSocketDisconnection from './socket/disconnection.js';
+import authMiddleware from './socket/middleware/auth.js';
 import router from './server/index.js';
 import GameMemory from './memory.js';
 
@@ -17,7 +16,6 @@ const memory = new GameMemory();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(helmet());
 app.use(express.static('./dist'));
 app.use(express.static('./public'));
 app.use((req, res, next) => {

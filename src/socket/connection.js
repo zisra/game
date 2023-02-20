@@ -7,7 +7,7 @@ const generateID = () => crypto.randomBytes(6).toString('hex');
 export default (socket) => {
 	if (!socket.sessionID) return socket.disconnect();
 	if (socket.memory.sessionExists(socket.sessionID)) {
-		socket.emit('err', {
+		socket.emit('appError', {
 			message: 'Session already exists',
 		});
 		return socket.disconnect();

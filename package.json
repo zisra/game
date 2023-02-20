@@ -6,19 +6,28 @@
 	"type": "module",
 	"scripts": {
 		"start": "node src/index.js",
+		"analyze": "parcel build --reporter @parcel/reporter-bundle-analyzer",
 		"build": "parcel build",
-		"watch": "parcel watch"
+		"watch": "parcel watch",
+		"format": "npx prettier --write .",
+		"lint": "eslint ."
 	},
 	"author": "Isra",
 	"license": "MIT",
 	"dependencies": {
 		"express": "^4.18.2",
-		"helmet": "^6.0.1",
 		"parcel": "^2.8.3",
+		"pixi.js": "^7.2.0-beta",
 		"socket.io": "^4.6.0",
 		"socket.io-client": "^4.6.0"
 	},
 	"devDependencies": {
-		"buffer": "^5.7.1"
+		"@parcel/reporter-bundle-analyzer": "^2.8.3",
+		"buffer": "^5.7.1",
+		"eslint": "^8.34.0",
+		"eslint-config-prettier": "^8.6.0",
+		"prettier": "2.8.4",
+		"punycode": "^1.4.1",
+		"querystring-es3": "^0.2.1"
 	}
 }
