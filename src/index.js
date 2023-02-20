@@ -1,4 +1,5 @@
 import express from 'express';
+import helmet from 'helmet';
 import { Server } from 'socket.io';
 
 import http from 'node:http';
@@ -15,7 +16,18 @@ const io = new Server(httpServer);
 const memory = new GameMemory();
 
 const PORT = process.env.PORT || 3000;
+const isProduction = process.env.NODE_ENV === 'production';
 
+app.use(helmet());
+app.use(
+	helmet.contentSecurityPolicy({
+		directives: {
+			defaultSrc: ["'self'"],
+			connectSrc: ["'self'", ...(isProduction ? [] : ['ws://localhost:1234'])], // Allow HMR server
+			scriptSrc: ["'self'", "'unsafe-eval'"],
+		},
+	})
+);
 app.use(express.static('./dist'));
 app.use(express.static('./public'));
 app.use((req, res, next) => {
