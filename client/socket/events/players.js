@@ -3,6 +3,6 @@ import sanitizeHTML from '../../util/sanitizeHTML.js';
 
 export default (players) => {
 	elements.get('leaderboard').innerHTML = players
-		.map((player) => sanitizeHTML(player.nickname))
+		.map((player) => `<li>${sanitizeHTML(player.nickname)}</li>`)
 		.join('<br />');
 };

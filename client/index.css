@@ -1,7 +1,96 @@
-body {
-	font-family: 'Roboto', sans-serif;
-}
+@import 'npm:normalize.css';
 
 .hidden {
 	display: none;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	font-family: 'Roboto', sans-serif;
+}
+
+canvas {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+#app {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#gameSetup {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+button {
+	padding: 0.5em 1em;
+	margin: 0.5em;
+	border: 0;
+	border-radius: 0.5em;
+	background-color: #0267c1;
+	cursor: pointer;
+	color: #fff;
+}
+
+input {
+	padding: 0.5em 1em;
+	margin: 0.5em;
+	border: 0;
+	border-radius: 0.5em;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	color: #000;
+}
+
+#leave {
+	background-color: #efa00b;
+}
+
+input:focus {
+	outline-color: #0267c1;
+}
+
+#messages {
+	margin-left: 15px;
+	height: 200px;
+	overflow: scroll;
+}
+
+#chat {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	margin-top: 1em;
+}
+
+#chat div {
+	padding-bottom: 0.5em;
+}
+#leaderboardBlock {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-radius: 0.5em;
+	background-color: #fff;
+	padding: 0.5em;
+	margin: 0.5em;
+	width: 140px;
+}
+
+#leaderboard {
+	list-style-type: none;
+	padding: 0px;
 }

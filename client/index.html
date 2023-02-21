@@ -9,22 +9,34 @@
 	</head>
 	<body>
 		<div id="game"></div>
+
 		<div id="gameSetup">
-			<input id="username" placeholder="Name" minlength="1" maxlength="12" />
+			<input
+				id="username"
+				placeholder="Name"
+				minlength="1"
+				maxlength="12"
+				autofocus
+			/>
 			<button id="join">Join</button>
 			<button class="hidden" id="leave">Leave</button>
 		</div>
 
-		<div class="hidden" id="leaderboard">
-			Leaderboard:
-			<div id="leaderboard"></div>
+		<div class="hidden" id="leaderboardBlock">
+			<b>Leaderboard</b>
+			<div id="playerCount"></div>
+			<ul id="leaderboard"></ul>
 		</div>
 
 		<div class="hidden" id="chat">
-			Messages:
 			<div id="messages"></div>
-			<input id="message" placeholder="Message" maxlength="500" />
-			<button id="sendMessage">Send</button>
+			<input
+				class="hidden"
+				id="message"
+				placeholder="Message"
+				maxlength="500"
+			/>
+			<button id="sendMessage" class="hidden">Send</button>
 		</div>
 		<script src="index.js" type="module"></script>
 	</body>
