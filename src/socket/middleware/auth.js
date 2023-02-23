@@ -1,4 +1,5 @@
-// Function to generate a random number between 0 and 99
+import sanitizeText from '../../util/sanitizeText.js';
+
 const random = () => Math.floor(Math.random() * 100);
 
 export default (socket, next) => {
@@ -12,7 +13,7 @@ export default (socket, next) => {
 	}
 
 	socket.sessionID = sessionID;
-	socket.nickname = nickname.trim().substring(0, 12);
+	socket.nickname = sanitizeText(nickname.trim().substring(0, 12));
 
 	next();
 };
